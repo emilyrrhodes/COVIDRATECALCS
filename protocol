@@ -6,7 +6,7 @@
 7CAK - 3 RBD in up conformation. 
 
 2. Open files in VMD.
-Command: 
+Command: mol new (pdb file name).pdb 
 
 3. Change the RBD molecules to be named the same thing. 
 Command: %s/ E / A / 
@@ -15,7 +15,7 @@ Note: Include spaces to ensure that not all of the Es are replaced with As. Chan
 4. Open Extension - Analysis - RMSD Trajectory Tool
 
 5. Look at the residue number for which the two molecules you want to align start at. 
-Command: vi (pdb file name) 
+Command: vi (pdb file name).pdb
 
 6. Type in the text box what you want to align. 
 Note: Sometimes the structures are missing atoms. You can first start by trying to allign all the "protein" molecules. Then get smaller and smaller until it works and build up from there. 
@@ -24,8 +24,21 @@ Command: chain A
 Command: chain A and name CA and resid ### to ### (the first number is the residue number for which molecule starts and the second number is changed to figure out how they are aligned)
 Command: chain A and name CA and resid ### to ### ### to ###
 
-7. Save aligned molecule. 
+7. Save aligned molecule.
+a. Select the top molecule. 
+Command: set sel [atomselect top "all"]
+b. Select the bottom aligned molecule. 
+Command: set sel2 [atomselect 1 "chain H L"]
+c. Combine the two molecules. 
+Command: set sel3 [::TopoTools::selections2mol "$sel $sel2"]
 
+8. Look at it.  
+Command: Press D on each of the molecules in the VMD window. Keep the last molecule. 
+
+9. Save pdb. 
+Command: animate write pdb (name of pdb).pdb $sel3
+
+10. Move pdb file to where you want it stored.  
 
 
  
