@@ -5,12 +5,21 @@
 6X2B - 2 RBD in up conformation. 
 7CAK - 3 RBD in up conformation. 
 
-2. Open files in VMD.
-Command: mol new (pdb file name).pdb 
+2. Change the RBD molecules to be named the same thing.
+Command: :%s/ E / A /
+Note: Include spaces to ensure that not all of the Es are replaced with As. Change the chain name in only the one you are trying to move.
+a. Determine the range when the line up starts. (with bottom molecule)
+Top - 6vxx Bottom - 7bwj: 333 
+Top - 6xm5 Bottom - 7bwj: 333 
+Top - 6vyb Bottom - 7bwj: 333
+Top - 6x2b Bottom - 7bwj: 333 
+Top - 7cak Bottom - 7bwj: 333
+b. Determine the end value. (Last residue that you want to align) 
+Bottom - 7bwj: 526 
 
-3. Change the RBD molecules to be named the same thing. 
-Command: %s/ E / A / 
-Note: Include spaces to ensure that not all of the Es are replaced with As. Change the chain name in only the one you are trying to move.  
+3. Open files in VMD.
+Command: mol new (pdb file name).pdb 
+Note: Load the molecule you want to align to (top) first and the molecule you want to move (bottom) second. 
 
 4. Open Extension - Analysis - RMSD Trajectory Tool
 
