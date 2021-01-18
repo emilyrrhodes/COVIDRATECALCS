@@ -33,11 +33,10 @@ Command: chain A
 Command: chain A and name CA and resid ### to ### (the first number is the residue number for which molecule starts and the second number is changed to figure out how they are aligned)
 Command: chain A and name CA and resid ### to ### ### to ###
 Top - 6vxx Bottom - 7bwj: chain A and name CA and resid 333 to 444 447 to 454 462 to 468 489 to 501 503 to 526
-Top - 6xm5 Bottom - 7bwj: 
-Top - 6vyb Bottom - 7bwj: 
-Top - 6x2b Bottom - 7bwj: 
-Top - 7cak Bottom - 7bwj: 
-
+Top - 6xm5 Bottom - 7bwj: chain A and name CA and resid 333 to 444 447 to 526 
+Top - 6vyb Bottom - 7bwj: chain A and name CA and resid 333 to 442 448 to 470 490 to 501 503 to 526
+Top - 6x2b Bottom - 7bwj: chain A and name CA and resid 333 to 442 448 to 470 490 to 501 503 to 526
+Top - 7cak Bottom - 7bwj: chain A and name CA and resid 333 to 444 447 to 526 
 
 7. Save aligned molecule.
 a. Select the top molecule. 
@@ -56,7 +55,6 @@ Command: animate write pdb (name of pdb).pdb $sel3
 10. Move pdb file to where you want it stored.  
 
 
- 
 
  
 
