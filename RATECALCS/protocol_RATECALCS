@@ -1,0 +1,20 @@
+1. Save only the chain you want to do the rate calculation for in chainX_YYYY_Ab.pdb and chainX_YYYY_Ag.pdb (no hydrogens). 
+
+2. Convert these files to pqr files at: https://server.poissonboltzmann.org/pdb2pqr -> Ab.pqr Ag.pqr
+
+3. In VMD, load in these pqr files and save without hydrogens -> Ab_noh.pdb Ag_noh.pdb.
+
+4. Change the 1st atom and last O and OXT atoms in each chain to NRT and CTR in pqr files, respectively. 
+
+5. APBS Calculations: 
+   a. Command: ssh compile
+   b. Go to the folder where you want to do the calculations
+      Command: 
+   c. Command: module load gcc/8.2.0
+   d. Issue the following commands (requires apbs.in):
+      Command: cp Ag.pqr tmp.pqr; apbs apbs.in > apbs.out; cat io.mc >> apbs1.out; mv tmp.grd eAg.apbs.grd $BIN/convert_grid eAg.apbs.grd eAg.grd -scale 0.6 -convert
+      Command: cp Ab.pqr tmp.pqr; apbs apbs.in > apbs.out; cat io.mc >> apbs1.ou
+t; mv tmp.grd eAb.apbs.grd $BIN/convert_grid eAb.apbs.grd eAb.grd -scale 0.6 -convert
+      Command: rm tmp.pqr
+
+
